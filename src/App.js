@@ -17,7 +17,7 @@ function App() {
 
 	useEffect(() => {
 		getIceCream();
-	}, []);
+	}, [iceCream]);
 
 	const getIceCream = async () => {
 		try {
@@ -38,7 +38,9 @@ function App() {
 				<Route path="/home" element={<Home iceCream={iceCream} />} />
 				<Route
 					path="/home/:id"
-					element={<IceCreamResults iceCream={iceCream} />}
+					element={
+						<IceCreamResults iceCream={iceCream} setIceCream={setIceCream} />
+					}
 				/>
 				<Route path="/home/create" element={<Create />} />
 			</Routes>
