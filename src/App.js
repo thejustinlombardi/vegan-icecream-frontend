@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import axios from "axios";
+
+import Welcome from "./components/Welcome/Welcome";
+import Navigation from "./components/Navigation/Navigation";
+import Home from "./components/Home/Home";
+import IceCreamResults from "./components/IceCream/IceCreamResults";
+
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const { pathname } = useLocation();
+
+	const [iceCream, setIceCream] = useState([]);
+
+	useEffect(() => {
+		getIceCream();
+	}, []);
+
+	const getIceCream = async () => {
+		try {
+			const res = await axios.get(
+				"https://vegan-icecream-locator.herokuapp.com/api/icecreams/"
+			);
+			setIceCream(res.data);
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	return (
+		<div className="app-container">
+			{pathname !== "/" && <Navigation />}
+			<Routes>
+				<Route path="/" element={<Welcome iceCream={iceCream} />} />
+				<Route path="/home" element={<Home iceCream={iceCream} />} />
+				<Route
+					path="/home/:id"
+					element={<IceCreamResults iceCream={iceCream} />}
+				/>
+			</Routes>
+		</div>
+	);
 }
 
 export default App;

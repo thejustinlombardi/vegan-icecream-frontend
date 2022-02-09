@@ -1,38 +1,100 @@
-.App {
-  text-align: center;
+* {
+	box-sizing: border-box;
+	transition: ease all 1s;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+	margin: 10px;
+	background-color: #ffddd2;
+	border: 5px solid white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+img {
+	object-fit: fill;
+	width: 200px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.cone {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	animation-name: dropdown, rotate;
+	animation-duration: 1s, 2s;
+	animation-delay: 0s, 2s;
 }
 
-.App-link {
-  color: #61dafb;
+.welcome-container {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.enter-here {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 3rem;
+	font-family: "Pacifico", cursive;
+	animation: fadeinlong 4s;
+}
+
+h1 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 3rem;
+	font-family: "Pacifico", cursive;
+	animation: fadein 1s;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes dropdown {
+	from {
+		transform: translateY(-100%);
+	}
+	to {
+		transform: translateY(0%);
+	}
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(-45deg);
+	}
+	75% {
+		transform: rotate(90deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+@keyframes fadeinlong {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
