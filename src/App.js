@@ -6,6 +6,7 @@ import Welcome from "./components/Welcome/Welcome";
 import Navigation from "./components/Navigation/Navigation";
 import Home from "./components/Home/Home";
 import IceCreamResults from "./components/IceCream/IceCreamResults";
+import Create from "./components/Create/Create";
 
 import "./App.css";
 
@@ -39,6 +40,7 @@ function App() {
 					path="/home/:id"
 					element={<IceCreamResults iceCream={iceCream} />}
 				/>
+				<Route path="/home/create" element={<Create />} />
 			</Routes>
 		</div>
 	);

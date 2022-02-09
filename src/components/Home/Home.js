@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 function Home({ iceCream }) {
 	return (
-		<div>
+		<div className="home-container">
 			{iceCream.map((ice, i) => {
 				// add more user info like city, years of residence, etc
 				return (
-					<Link to={`/home/${ice.id}`} key={`${ice.brand}-${i}`}>
+					<Link to={`/home/${ice.id - 1}`} key={`${ice.brand}-${i}`}>
 						<img src={ice.photo_url} alt={ice.brand} />
 					</Link>
 				);

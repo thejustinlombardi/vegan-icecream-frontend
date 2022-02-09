@@ -12,6 +12,8 @@ body {
 img {
 	object-fit: fill;
 	width: 200px;
+	border-radius: 3px;
+	padding: 10px;
 }
 
 .cone {
@@ -23,12 +25,14 @@ img {
 	animation-delay: 0s, 2s;
 }
 
-.welcome-container {
+.welcome-container,
+.home-container {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	height: 100vh;
+	padding: 10px;
 }
-
 .enter-here {
 	display: flex;
 	flex-direction: column;
@@ -38,7 +42,17 @@ img {
 	font-family: "Pacifico", cursive;
 	animation: fadeinlong 4s;
 }
+.main-icecream {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
 
+.ice-site {
+	font-size: 3rem;
+	font-family: "Pacifico", cursive;
+}
 h1 {
 	display: flex;
 	flex-direction: column;
